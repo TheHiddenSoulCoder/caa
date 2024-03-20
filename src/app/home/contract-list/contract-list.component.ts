@@ -1,15 +1,14 @@
-import { Component } from '@angular/core';
-import {ContractItemComponent} from "./contract-item/contract-item.component";
+import { Component, Input } from '@angular/core';
+import { Contract } from '../../contract';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-contract-list',
   standalone: true,
-  imports: [
-    ContractItemComponent
-  ],
+  imports: [CommonModule],
   templateUrl: './contract-list.component.html',
   styleUrl: './contract-list.component.scss'
 })
 export class ContractListComponent {
-
+  @Input() contract!: Contract;
 }
