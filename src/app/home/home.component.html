@@ -2,7 +2,12 @@
   <div class="card">
     <div class="card-header">
       <h4>Nouveau contrat</h4>
-      <div>Placeholder</div>
+      <select name="contract-name" id="contract-select">
+        <option value="">Toutes les sections</option>
+        <option
+            *ngFor="let contract of contractList"
+            value="">{{contract.title}}</option>
+      </select>
     </div>
     <app-contract-list class="card-content"
         *ngFor="let contract of contractList"
