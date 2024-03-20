@@ -59,7 +59,8 @@ export class ContractService {
       "items": [
         {
           "label": "Réduction télésurveillance",
-          "name": "5% sur votre cotisation grâce à Nexecur"
+          //TODO: Sanitize HTML
+          "name": "5% sur votre cotisation <br>grâce à Nexecur"
         },
         {
           "label": "Réduction multi-détention d'options",

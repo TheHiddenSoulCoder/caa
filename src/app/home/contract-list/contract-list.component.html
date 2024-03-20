@@ -1,7 +1,9 @@
 <section>
-  <div>{{contract.title}}</div>
-  <div *ngFor="let item of contract.items">
-    <div>{{item.label}}</div>
-    <div>{{item.name}}</div>
+  <div class="card-items">
+    <div>{{contract.title}}</div>
+    <div *ngFor="let item of contract.items">
+      <div>{{item.label}}</div>
+      <div>{{item.name}}</div>
+    </div>
   </div>
 </section>
