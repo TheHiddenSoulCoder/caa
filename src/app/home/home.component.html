@@ -3,10 +3,10 @@
     <div class="card-header">
       <h4>Nouveau contrat</h4>
       <select name="contract-name" id="contract-select">
-        <option value="">Toutes les sections</option>
+        <option value="Toutes les sections">Toutes les sections</option>
         <option
             *ngFor="let contract of contractList"
-            value="">{{contract.title}}</option>
+            value="{{contract.title}}">{{contract.title}}</option>
       </select>
     </div>
     <app-contract-list class="card-content"

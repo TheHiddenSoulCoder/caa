@@ -7,6 +7,7 @@ import { Contract } from './contract';
 export class ContractService {
 
   protected contractList: Contract[] = [
+    //TODO: Possible need to sanitize json file
     {
       "title": "Formule choisie",
       "icon": "file-contract",
@@ -27,7 +28,7 @@ export class ContractService {
     },
     {
       "title": "Plafonds d'indemnisation",
-      "icon": "credit-card ",
+      "icon": "credit-card",
       "items": [
         {
           "label": "Mobilier",
@@ -45,7 +46,7 @@ export class ContractService {
     },
     {
       "title": "Cotisation",
-      "icon": "coins ",
+      "icon": "coins",
       "items": [
         {
           "label": "Montant",

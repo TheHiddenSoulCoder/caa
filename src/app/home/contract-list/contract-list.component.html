@@ -1,9 +1,14 @@
 <section>
   <div class="card-items">
-    <div>{{contract.title}}</div>
+    <div>
+      <fa-icon [icon]="iconDict[contract.icon]"></fa-icon>
+      <div>{{contract.title}}</div>
+    </div>
     <div *ngFor="let item of contract.items">
       <div>{{item.label}}</div>
       <div>{{item.name}}</div>
     </div>
+    <button>Modifier</button>
   </div>
 </section>
+
