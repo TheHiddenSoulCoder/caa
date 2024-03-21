@@ -1,6 +1,15 @@
 <section class="results">
-  <app-contract-list
-    *ngFor="let contract of contractList"
-    [contract]="contract">
-  </app-contract-list>
+  <div class="card">
+    <div class="card-header">
+      <h4>Nouveau contrat</h4>
+      <select [(ngModel)]="contractTitleSelected" (ngModelChange)="filterResults($event)">
+        <option value="">Toutes les sections</option>
+        <option *ngFor="let contract of contractList" [value]="contract.title">{{contract.title}}</option>
+      </select>
+    </div>
+    <app-contract-list class="card-content"
+        *ngFor="let contract of contractFiltered"
+        [contract]="contract">
+    </app-contract-list>
+  </div>
 </section>

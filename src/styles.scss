@@ -6,6 +6,11 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
+
+section {
+  margin: 20px auto;
+}
+
 :root {
   --primary-color: #308276;
   --secondary-color: #c1dad6;
@@ -15,11 +20,15 @@ body {
   --icon-color: #004652;
 }
 
-//TODO remove or modify this
+fa-icon {
+  color: var(--icon-color);
+}
+
 button.primary {
-  padding: 10px;
-  border: solid 1px var(--primary-color);
-  background: var(--primary-color);
-  color: white;
-  border-radius: 8px;
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
 }
