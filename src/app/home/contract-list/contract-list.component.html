@@ -1,16 +1,16 @@
 <section>
-  <div class="card-items parent">
-    <div class="card-item-header div1">
+  <div id="card-parent" class="card-items">
+    <div id="card-item1" class="card-item-header div1">
       <fa-icon [icon]="iconDict[contract.icon]"></fa-icon>
       <div>{{contract.title}}</div>
     </div>
-    <div class="div2">
+    <div id="card-item2">
       <div *ngFor="let item of contract.items" class="card-item-content">
         <div>{{item.label}} :</div>
         <strong>{{item.name}}</strong>
       </div>
     </div>
-    <div class="div3">
+    <div id="card-item3">
       <fa-icon [icon]="faPencil"></fa-icon>
       <button class="primary">Modifier</button>
     </div>

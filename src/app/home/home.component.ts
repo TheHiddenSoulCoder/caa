@@ -13,9 +13,22 @@ import { ContractService } from '../contract.service';
 })
 export class HomeComponent {
   contractList: Contract[] = [];
+  contractFiltered: Contract[] = [];
   contractService: ContractService = inject(ContractService);
 
   constructor() {
     this.contractList = this.contractService.getAllContracts();
+    this.contractFiltered = this.contractList;
+  }
+
+  filterResults(text: string) {
+    if (!text) {
+      this.contractFiltered = this.contractList;
+      return;
+    }
+
+    this.contractFiltered = this.contractList.filter(
+      contract => contract?.title.toLowerCase().includes(text.toLowerCase())
+    );
   }
 }
