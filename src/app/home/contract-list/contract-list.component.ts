@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Contract } from '../../contract';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faFileContract, faCreditCard, faCoins, faPercent, faGift } from '@fortawesome/free-solid-svg-icons';
+import { faPencil, faFileContract, faCreditCard, faCoins, faPercent, faGift } from '@fortawesome/free-solid-svg-icons';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
@@ -15,11 +15,13 @@ import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 export class ContractListComponent {
   @Input() contract!: Contract;
 
-  iconDict: Record<string, IconDefinition> = {
+  protected readonly iconDict: Record<string, IconDefinition> = {
     'file-contract': faFileContract,
     'credit-card': faCreditCard,
     'coins': faCoins,
     'percent': faPercent,
     'gift': faGift
   }
+
+  protected readonly faPencil = faPencil;
 }
