@@ -19,8 +19,10 @@ export class HomeComponent {
   contractService: ContractService = inject(ContractService);
 
   constructor() {
-    this.contractList = this.contractService.getAllContracts();
-    this.contractFiltered = this.contractList;
+    this.contractService.getAllContracts().then((contracts: Contract[]) => {
+      this.contractList = contracts;
+      this.contractFiltered = contracts;
+    });
   }
 
   filterResults(text: string) {

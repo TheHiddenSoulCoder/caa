@@ -5,92 +5,26 @@ import { Contract } from './contract';
   providedIn: 'root'
 })
 export class ContractService {
+  mockDataUrl: string = 'http://localhost:3000/contracts';
+  contractList: Contract[] = [];
 
-  protected contractList: Contract[] = [
-    //TODO: Possible need to sanitize json file
-    {
-      "title": "Formule choisie",
-      "icon": "file-contract",
-      "items": [
-        {
-          "label": "Date de démarrage",
-          "name": "12/08/2024"
-        },
-        {
-          "label": "Extensions",
-          "name": "Vélo, sport, loisirs, jardins"
-        },
-        {
-          "label": "Type d'indemnisation",
-          "name": "Valeur de remplacement à neuf"
-        }
-      ]
-    },
-    {
-      "title": "Plafonds d'indemnisation",
-      "icon": "credit-card",
-      "items": [
-        {
-          "label": "Mobilier",
-          "name": "50 000 €"
-        },
-        {
-          "label": "Bijoux et objets précieux",
-          "name": "30 000 €"
-        },
-        {
-          "label": "Objets de valeur",
-          "name": "60 000 €"
-        }
-      ]
-    },
-    {
-      "title": "Cotisation",
-      "icon": "coins",
-      "items": [
-        {
-          "label": "Montant",
-          "name": "51,63 €/mois | 619,56 €/an"
-        }
-      ]
-    },
-    {
-      "title": "Réductions appliquées sur votre tarif",
-      "icon": "percent",
-      "items": [
-        {
-          "label": "Réduction télésurveillance",
-          //TODO: Sanitize HTML
-          "name": "5% sur votre cotisation <br>grâce à Nexecur"
-        },
-        {
-          "label": "Réduction multi-détention d'options",
-          "name": "10% par an sur votre cotisation"
-        }
-      ]
-    },
-    {
-      "title": "Autres avantages",
-      "icon": "gift",
-      "items": [
-        {
-          "label": "Promotion commerciale",
-          "name": "2 mois de cotisation offert",
-          "url": "#step1"
-        },
-        {
-          "label": "Promotion commerciale",
-          "name": "1er mois offert"
-        },
-        {
-          "label": "Promotion commerciale",
-          "name": "0 frais de compte"
-        }
-      ]
-    }
-  ];
+  constructor() {
+    this.getAllContracts().then((contracts: Contract[]) => {
+      this.contractList = contracts;
+    });
+  }
 
-  getAllContracts(): Contract[] {
-    return this.contractList;
+  sanitizeContract(contract: Contract): Contract {
+    contract.icon = contract.icon.trim();
+    contract.items.forEach(item => {
+      item.name = item.name.replace(/<br>/g, '\n').trim();
+    });
+    return contract;
+  }
+
+  async getAllContracts(): Promise<Contract[]> {
+    const mockData: Response = await fetch(this.mockDataUrl);
+    const contracts: Contract[] = await mockData.json() ?? [];
+    return contracts.map(contract => this.sanitizeContract(contract));
   }
 }
