@@ -6,6 +6,10 @@ import { Contract } from './contract';
 })
 export class ContractService {
 
+  constructor() {
+    this.sanitizeContract();
+  }
+
   protected contractList: Contract[] = [
     //TODO: Possible need to sanitize json file
     {
@@ -28,7 +32,7 @@ export class ContractService {
     },
     {
       "title": "Plafonds d'indemnisation",
-      "icon": "credit-card",
+      "icon": "credit-card ",
       "items": [
         {
           "label": "Mobilier",
@@ -46,7 +50,7 @@ export class ContractService {
     },
     {
       "title": "Cotisation",
-      "icon": "coins",
+      "icon": "coins ",
       "items": [
         {
           "label": "Montant",
@@ -60,7 +64,6 @@ export class ContractService {
       "items": [
         {
           "label": "Réduction télésurveillance",
-          //TODO: Sanitize HTML
           "name": "5% sur votre cotisation <br>grâce à Nexecur"
         },
         {
@@ -89,6 +92,15 @@ export class ContractService {
       ]
     }
   ];
+
+  sanitizeContract() {
+    this.contractList.forEach(contract => {
+      contract.icon = contract.icon.trim();
+      contract.items.forEach(item => {
+        item.name = item.name = item.name.replace(/<br>/g, '\n').trim();
+      });
+    });
+  }
 
   getAllContracts(): Contract[] {
     return this.contractList;
