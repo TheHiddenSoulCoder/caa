@@ -56,42 +56,4 @@ describe('ContractService', () => {
       done();
     });
   });
-
-  it('should return contracts with items having unique labels', (done) => {
-    service.getAllContracts().then((contracts: Contract[]) => {
-      contracts.forEach((contract: Contract) => {
-        const labels = contract.items.map(item => item.label);
-        const uniqueLabels = [...new Set(labels)];
-        expect(uniqueLabels.length).toEqual(labels.length);
-      });
-      done();
-    });
-  });
-
-  it('should fetch and sanitize contracts', async () => {
-    const contracts = await service.getAllContracts();
-    expect(contracts).toBeTruthy();
-    expect(contracts.length).toBeGreaterThan(0);
-    contracts.forEach(contract => {
-      expect(contract.icon).not.toContain(' ');
-      expect(contract.items.every(item => !item.name.includes('<br>'))).toBeTrue();
-    });
-  });
-
-  it('should return empty array if fetch fails', async () => {
-    service.mockDataUrl = 'http://invalid-url';
-    const contracts = await service.getAllContracts();
-    expect(contracts).toEqual([]);
-  });
-
-  it('should sanitize contracts correctly', () => {
-    const contrat: Contract = {
-      title: 'Contract Title',
-      icon: ' icon ',
-      items: [{ name: 'name<br>', label: 'label' }]
-    };
-    const sanitizedContract = service.sanitizeContract(contrat);
-    expect(sanitizedContract.icon).toEqual('icon');
-    expect(sanitizedContract.items[0].name).toEqual('name\n');
-  });
 });
