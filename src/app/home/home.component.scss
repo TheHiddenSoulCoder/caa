@@ -1,13 +1,7 @@
-.results {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.card {
+.card-container {
   display: flex;
   flex-direction: column;
-  flex: 1 1 0;
+  width: 100vw;
   max-width: 958px;
   box-sizing: border-box;
   border-width: 0;

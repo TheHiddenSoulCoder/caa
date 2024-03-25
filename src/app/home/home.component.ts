@@ -13,10 +13,10 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  contractList: Contract[] = [];
-  contractFiltered: Contract[] = [];
-  contractTitleSelected: string = '';
-  contractService: ContractService = inject(ContractService);
+  public contractList: Contract[] = [];
+  public contractFiltered: Contract[] = [];
+  public contractTitleSelected: string = '';
+  private contractService: ContractService = inject(ContractService);
 
   constructor() {
     this.contractService.getAllContracts().then((contracts: Contract[]) => {
@@ -25,7 +25,7 @@ export class HomeComponent {
     });
   }
 
-  filterResults(text: string) {
+  public filterResults(text: string) {
     if (!text) {
       this.contractFiltered = this.contractList;
       return;
