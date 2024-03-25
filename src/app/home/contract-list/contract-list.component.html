@@ -1,16 +1,16 @@
-<div id="card-parent" class="card-items">
-  <div id="card-item1" class="card-item-header div1">
+<div id="card-parent-container" class="card-items">
+  <div id="card-item-1" class="card-item-header">
     <fa-icon [icon]="iconDict[contract.icon]"></fa-icon>
     <div>{{contract.title}}</div>
   </div>
-  <div id="card-item2">
+  <div id="card-item-2">
     <div *ngFor="let item of contract.items" class="card-item-content">
       <label>{{item.label}} :</label>
       <strong style="white-space: pre-wrap;">{{item.name}}</strong>
     </div>
   </div>
-  <div id="card-item3">
+  <div id="card-item-3">
     <fa-icon [icon]="iconDict['pencil']"></fa-icon>
-    <button class="primary">Modifier</button>
+    <button class="primary" (click)="modifyContract(contract.title)">Modifier</button>
   </div>
 </div>

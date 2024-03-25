@@ -8,6 +8,10 @@
   </div>
   <app-contract-list class="card-content"
                      *ngFor="let contract of contractFiltered"
-                     [contract]="contract">
+                     [contract]="contract"
+                     (contractModified)="contractModification($event)">
   </app-contract-list>
 </div>
+<p class="contract-title-modified"
+   *ngIf="contractTitleEmitted">Section "{{contractTitleEmitted}}" modifiée !
+</p>

@@ -16,6 +16,7 @@ export class HomeComponent {
   public contractList: Contract[] = [];
   public contractFiltered: Contract[] = [];
   public contractTitleSelected: string = '';
+  public contractTitleEmitted: string = '';
   private contractService: ContractService = inject(ContractService);
 
   constructor() {
@@ -34,5 +35,9 @@ export class HomeComponent {
     this.contractFiltered = this.contractList.filter(
       contract => contract?.title.toLowerCase().includes(text.toLowerCase())
     );
+  }
+
+  public contractModification(title: string) {
+    this.contractTitleEmitted = title;
   }
 }

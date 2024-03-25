@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Contract } from '../../contract';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -14,6 +14,7 @@ import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 })
 export class ContractListComponent {
   @Input() contract!: Contract;
+  @Output() contractModified = new EventEmitter<string>();
 
   public readonly iconDict: Record<string, IconDefinition> = {
     'file-contract': faFileContract,
@@ -23,5 +24,9 @@ export class ContractListComponent {
     'gift': faGift,
     'pencil': faPencil
   };
+
+  public modifyContract(title: string) {
+    this.contractModified.emit(title);
+  }
 
 }
