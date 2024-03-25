@@ -9,8 +9,9 @@
       <strong style="white-space: pre-wrap;">{{item.name}}</strong>
     </div>
   </div>
-  <div id="card-item-3">
+  <div id="card-item-3" [class.last-button]="isLastContract">
     <fa-icon [icon]="iconDict['pencil']"></fa-icon>
-    <button class="primary" (click)="modifyContract(contract.title)">Modifier</button>
+    <button class="primary"
+            (click)="modifyContract(contract.title)">Modifier</button>
   </div>
 </div>

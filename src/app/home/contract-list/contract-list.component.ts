@@ -14,6 +14,7 @@ import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 })
 export class ContractListComponent {
   @Input() contract!: Contract;
+  @Input() isLastContract!: boolean;
   @Output() contractModified = new EventEmitter<string>();
 
   public readonly iconDict: Record<string, IconDefinition> = {

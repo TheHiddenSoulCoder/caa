@@ -7,8 +7,9 @@
     </select>
   </div>
   <app-contract-list class="card-content"
-                     *ngFor="let contract of contractFiltered"
+                     *ngFor="let contract of contractFiltered; let isLastContract = last"
                      [contract]="contract"
+                     [isLastContract]="isLastContract"
                      (contractModified)="contractModification($event)">
   </app-contract-list>
 </div>

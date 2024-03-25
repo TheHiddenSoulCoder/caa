@@ -8,6 +8,7 @@ header, footer {
   .nav {
     display: flex;
     padding: 0 1.25rem;
+    justify-content: center;
 
     .nav-link {
       color: var(--secondary-color);
@@ -26,16 +27,6 @@ header {
 
   .nav {
     justify-content: flex-start;
-  }
-}
-
-footer {
-  //position:fixed;
-  //bottom: 0;
-  width: 100%;
-
-  .nav {
-    justify-content: center;
   }
 }
 

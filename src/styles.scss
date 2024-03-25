@@ -1,16 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: 'Roboto', sans-serif;
-}
-
-section {
-  margin: 20px;
-}
-
 :root {
   --primary-color: #308276;
   --secondary-color: #c1dad6;
@@ -19,6 +6,21 @@ section {
   --text-color: #071621;
   --icon-color: #004652;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+}
+
+section {
+  margin: 20px;
+}
+
 
 fa-icon {
   color: var(--icon-color);
