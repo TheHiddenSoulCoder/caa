@@ -4,6 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 It's compatible with Angular 15 as signals, defer and all other features implemented since Angular 16+ are not being used.
 
+Browser used for rendering during development: Firefox.
 
 ## Development server
 
