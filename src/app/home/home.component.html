@@ -1,19 +1,21 @@
-<h1 class="contract-title">Récapitulatif du contrat</h1>
-<div class="card-container">
-  <div class="card-header">
-    <h4>Nouveau contrat</h4>
-    <select [(ngModel)]="contractTitleSelected" (ngModelChange)="filterResults($event)">
-      <option value="">Toutes les sections</option>
-      <option *ngFor="let contract of contractList" [value]="contract.title">{{contract.title}}</option>
-    </select>
+<section>
+  <h1 class="contract-title">Récapitulatif du contrat</h1>
+  <div class="card-container">
+    <div class="card-header">
+      <h4>Nouveau contrat</h4>
+      <select [(ngModel)]="contractTitleSelected" (ngModelChange)="filterResults($event)">
+        <option value="">Toutes les sections</option>
+        <option *ngFor="let contract of contractList" [value]="contract.title">{{contract.title}}</option>
+      </select>
+    </div>
+    <app-contract-list class="card-content"
+                       *ngFor="let contract of contractFiltered; let isLastContract = last"
+                       [contract]="contract"
+                       [isLastContract]="isLastContract"
+                       (contractModified)="contractModification($event)">
+    </app-contract-list>
   </div>
-  <app-contract-list class="card-content"
-                     *ngFor="let contract of contractFiltered; let isLastContract = last"
-                     [contract]="contract"
-                     [isLastContract]="isLastContract"
-                     (contractModified)="contractModification($event)">
-  </app-contract-list>
-</div>
-<p class="contract-modified"
-   *ngIf="contractTitleEmitted">Section "{{contractTitleEmitted}}" modifiée !
-</p>
+  <p class="contract-modified"
+     *ngIf="contractTitleEmitted">Section "{{contractTitleEmitted}}" modifiée !
+  </p>
+</section>
