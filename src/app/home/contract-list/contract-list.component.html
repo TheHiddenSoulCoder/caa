@@ -9,10 +9,12 @@
       <strong style="white-space: pre-wrap;">{{item.name}}</strong>
     </div>
   </div>
-  <div id="card-item-3"
-       [class.last-button]="isLastContract"
-       (click)="modifyContract(contract.title)">
-    <fa-icon [icon]="iconDict['pencil']"></fa-icon>
-    <button class="primary">Modifier</button>
-  </div>
+  <button id="card-item-3"
+          class="primary"
+          [class.last-button]="isLastContract"
+          (click)="modifyContract(contract.title)"
+          attr.aria-label="Modifier {{contract.title}}">
+                  <fa-icon [icon]="iconDict['pencil']"></fa-icon>
+                  <span>Modifier</span>
+  </button>
 </div>
