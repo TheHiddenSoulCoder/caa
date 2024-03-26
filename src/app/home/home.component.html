@@ -1,4 +1,4 @@
-<h1 class="contract-text">Récapitulatif du contrat</h1>
+<h1 class="contract-title">Récapitulatif du contrat</h1>
 <div class="card-container">
   <div class="card-header">
     <h4>Nouveau contrat</h4>
@@ -14,6 +14,6 @@
                      (contractModified)="contractModification($event)">
   </app-contract-list>
 </div>
-<p class="contract-text modified"
+<p class="contract-modified"
    *ngIf="contractTitleEmitted">Section "{{contractTitleEmitted}}" modifiée !
 </p>

@@ -38,10 +38,11 @@
   }
 }
 
-.contract-text {
-  margin: 20px 0;
+.contract-title {
+  margin-bottom: 20px;
+}
 
-  &.modified {
-    color: var(--primary-color);
-  }
+.contract-modified {
+  color: var(--primary-color);
+  margin-top: 20px;
 }
