@@ -15,6 +15,10 @@
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: .875rem;
+  }
 }
 
 section {
@@ -34,3 +38,4 @@ button.primary {
   cursor: pointer;
   padding: 0;
 }
+

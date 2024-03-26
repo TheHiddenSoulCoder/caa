@@ -1,7 +1,7 @@
 <div id="card-parent-container" class="card-items">
   <div id="card-item-1" class="card-item-header">
     <fa-icon [icon]="iconDict[contract.icon]"></fa-icon>
-    <div>{{contract.title}}</div>
+    <h4>{{contract.title}}</h4>
   </div>
   <div id="card-item-2">
     <div *ngFor="let item of contract.items" class="card-item-content">
