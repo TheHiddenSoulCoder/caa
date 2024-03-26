@@ -38,9 +38,10 @@
   }
 }
 
-.contract-title-modified {
+.contract-text {
   margin: 20px 0;
-  font-size: .9rem;
-  font-weight: 500;
-  color: var(--primary-color);
+
+  &.modified {
+    color: var(--primary-color);
+  }
 }
